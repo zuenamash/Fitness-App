@@ -7,54 +7,42 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-
+import zuu.com.workoutlog.databinding.ActivityHomeBinding
+import zuu.com.workoutlog.databinding.ActivityLoginBinding
 
 class loginActivity : AppCompatActivity() {
-    lateinit var btnLogin:Button
-    lateinit var tilEmail: TextInputLayout
-    lateinit var tilPassword:TextInputLayout
-    lateinit var etEmail:TextInputEditText
-    lateinit var etPassword:TextInputEditText
-    lateinit var tvSignup:TextView
+  lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        btnLogin=findViewById(R.id.btnLogin)
-        tilEmail=findViewById(R.id.tilEmal)
-        tilPassword=findViewById(R.id.tilPassword)
-        etEmail=findViewById(R.id.etEmail)
-        etPassword=findViewById(R.id.etPassword)
-        tvSignup =findViewById(R.id.tvSignup)
+        binding= ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-
-
-
-        btnLogin.setOnClickListener {
-            var intent=Intent(this,workOut::class.java)
+        binding.btnLogin.setOnClickListener{
+            var intent=Intent(this,HomeActivity::class.java)
             startActivity(intent)
             validateLogin()
-
         }
-
-        tvSignup.setOnClickListener{
+        binding.tvSignup.setOnClickListener{
             var intent=Intent(this,SignUp::class.java)
             startActivity(intent)
         }
-
     }
     fun validateLogin(){
-        var email= etEmail.text.toString()
-        var password=etPassword.text.toString()
+        var email= binding.etEmail.text.toString()
+        var password=binding.etPassword.text.toString()
+        var error=false
 
         if (email.isBlank()){
-            tilEmail.error=getString(R.string.email_required)
-            error(true)
+            binding.tilEmal.error="Input email"
+            error=true
         }
         if (password.isBlank()){
-            tilPassword.error="password required"
-            error(true)
+            binding.tilPassword.error="password required"
+            error=true
         }
-
-
+        if(!error){
+            startActivity(Intent(this,HomeActivity::class.java))
+            finish()
+        }
     }
 }

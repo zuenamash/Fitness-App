@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">workOutLog</string>
     <string name="email_required">email required</string>
+    <string name="profile">Profile</string>
+    <string name="track">Track</string>
+    <string name="plan">Plan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

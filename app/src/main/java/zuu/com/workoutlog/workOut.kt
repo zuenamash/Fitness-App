@@ -6,6 +6,6 @@ import android.os.Bundle
 class workOut : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_work_out)
+        setContentView(R.layout.activity_main)
     }
 }
