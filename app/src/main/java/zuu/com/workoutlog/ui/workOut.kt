@@ -1,7 +1,8 @@
-package zuu.com.workoutlog
+package zuu.com.workoutlog.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import zuu.com.workoutlog.R
 
 class workOut : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

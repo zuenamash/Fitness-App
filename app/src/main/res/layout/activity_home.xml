@@ -22,7 +22,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcvHome"
-        android:name="zuu.com.workoutlog.PlanFragment"
+        android:name="zuu.com.workoutlog.ui.PlanFragment"
         android:layout_width="426dp"
         android:layout_height="1093dp"
         app:layout_constraintBottom_toTopOf="@+id/bnv"

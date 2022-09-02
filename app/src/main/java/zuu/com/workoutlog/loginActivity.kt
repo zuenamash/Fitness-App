@@ -2,13 +2,9 @@ package zuu.com.workoutlog
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import zuu.com.workoutlog.databinding.ActivityHomeBinding
 import zuu.com.workoutlog.databinding.ActivityLoginBinding
+import zuu.com.workoutlog.ui.SignUp
 
 class loginActivity : AppCompatActivity() {
   lateinit var binding: ActivityLoginBinding
@@ -23,7 +19,7 @@ class loginActivity : AppCompatActivity() {
             validateLogin()
         }
         binding.tvSignup.setOnClickListener{
-            var intent=Intent(this,SignUp::class.java)
+            var intent=Intent(this, SignUp::class.java)
             startActivity(intent)
         }
     }

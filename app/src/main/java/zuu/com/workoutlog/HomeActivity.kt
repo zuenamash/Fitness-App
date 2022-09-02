@@ -2,9 +2,10 @@ package zuu.com.workoutlog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import zuu.com.workoutlog.databinding.ActivityHomeBinding
+import zuu.com.workoutlog.ui.PlanFragment
+import zuu.com.workoutlog.ui.profileFragment
+import zuu.com.workoutlog.ui.track
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
@@ -17,15 +18,21 @@ class HomeActivity : AppCompatActivity() {
         binding.bnv.setOnItemSelectedListener { item->
             when (item.itemId){
                 R.id.plan->{
-                    val transaction=supportFragmentManager.beginTransaction().replace(R.id.fcvHome,PlanFragment()).commit()
+                    val transaction=supportFragmentManager.beginTransaction().replace(R.id.fcvHome,
+                        PlanFragment()
+                    ).commit()
                     true
                 }
                     R.id.track->{
-                        val transaction=supportFragmentManager.beginTransaction().replace(R.id.fcvHome,track()).commit()
+                        val transaction=supportFragmentManager.beginTransaction().replace(R.id.fcvHome,
+                            track()
+                        ).commit()
                         true
                     }
                 R.id.profile->{
-                    val transaction=supportFragmentManager.beginTransaction().replace(R.id.fcvHome,profileFragment()).commit()
+                    val transaction=supportFragmentManager.beginTransaction().replace(R.id.fcvHome,
+                        profileFragment()
+                    ).commit()
                     true
                 }
                 else->false

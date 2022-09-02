@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="zuu.com.workoutlog">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,18 +13,19 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".workOut"
+            android:name=".ui.workOut"
             android:exported="false" />
         <activity
-            android:name=".SignUp"
+            android:name=".ui.SignUp"
             android:exported="false" />
         <activity
             android:name=".loginActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.workOut"
             android:exported="true"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
