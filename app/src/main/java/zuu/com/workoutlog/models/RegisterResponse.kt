@@ -1,6 +1,6 @@
 package zuu.com.workoutlog.models
 
-data class RegeterUser(
+data class RegisterResponse(
     var message:String,
-    var user:User
+    var user:User,
 )

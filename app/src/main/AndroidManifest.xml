@@ -19,7 +19,7 @@
             android:name=".ui.SignUp"
             android:exported="false" />
         <activity
-            android:name=".loginActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ui.workOut"

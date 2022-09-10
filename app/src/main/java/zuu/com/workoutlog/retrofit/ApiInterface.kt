@@ -1,4 +1,4 @@
-package zuu.com.workoutlog
+package zuu.com.workoutlog.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,5 +13,8 @@ object ApiInterface{
         return retrofit.create(ApiInterface)
     }
 
+//    fun registerUser(registerRequest: Any): Any {
+//
+//    }
 
 }
