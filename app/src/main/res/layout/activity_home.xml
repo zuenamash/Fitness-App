@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/clHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbarStyle="insideOverlay"
-    tools:context=".HomeActivity">
+    tools:context="zuu.com.workoutlog.ui.HomeActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv"
@@ -19,18 +19,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcvHome"
-        android:name="zuu.com.workoutlog.ui.PlanFragment"
-        android:layout_width="426dp"
-        android:layout_height="1093dp"
-        app:layout_constraintBottom_toTopOf="@+id/bnv"
+        android:name="zuu.com.workoutlog.ui.profileFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/glTop"
+        tools:layout="@layout/fragment_plan" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <ImageView
+        android:id="@+id/ImgProfile"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/glTop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    <TextView
+        android:id="@+id/tvFullName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/zuenah_macharia"
+        app:layout_constraintBottom_toBottomOf="@+id/ImgProfile"
+        app:layout_constraintEnd_toStartOf="@+id/ImgProfile"
+        app:layout_constraintTop_toTopOf="@+id/ImgProfile" />
+
+    <TextView
+        android:id="@+id/tvLog"
+        android:layout_width="58dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="4dp"
+        android:text="Log out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.975"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/glTop" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

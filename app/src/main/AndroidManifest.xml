@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkOutLog">
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.HomeActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.workOut"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ui.workOut"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".ui.SignUp"
             android:exported="false" />
@@ -24,8 +24,8 @@
         <activity
             android:name=".ui.workOut"
             android:exported="true"
-            android:theme="@style/SplashTheme"
-            tools:ignore="DuplicateActivity">
+            android:theme="@style/SplashTheme">
+<!--            tools:ignore="DuplicateActivity">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
