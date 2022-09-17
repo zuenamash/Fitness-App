@@ -17,8 +17,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import zuu.com.workoutLog.R
-//import zuu.com.workoutLog.R
 import zuu.com.workoutLog.databinding.ActivitySignUpBinding
+
+//import zuu.com.workoutLog.R
+//import zuu.com.workoutLog.databinding.ActivitySignUpBinding
 import zuu.com.workoutlog.models.loginResponse
 
 class SignUp : AppCompatActivity() {
@@ -89,8 +91,8 @@ class SignUp : AppCompatActivity() {
         }
         if(!error){
             val registerRequest =RegisterRequest(first,last,email,phoneNumber,password)
-//           userViewModel.regesterUser(registerRequest)
-//            makeRegistrationRequest(RegisterRequest)
+//          userViewModel.regesterUser(registerRequest)
+//           makeRegistrationRequest(RegisterRequest)
 
         }
     }

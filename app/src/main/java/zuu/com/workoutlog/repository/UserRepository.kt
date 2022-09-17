@@ -18,8 +18,7 @@ class UserRepository {
         return@withContext response
     }
 
-    suspend fun makeUserRequest(registerRequest: RegisterRequest): Response<RegisterResponse> =
-        withContext(Dispatchers.IO) {
+    suspend fun makeUserRequest(registerRequest: RegisterRequest): Response<RegisterResponse> = withContext(Dispatchers.IO) {
             val response = apiClient.registerUser(registerRequest)
             return@withContext response
 
