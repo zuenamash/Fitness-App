@@ -15,6 +15,7 @@ interface ApiInterface {
     @POST("/login")
     suspend fun login(@Body loginRequest: loginRequest): Response<loginResponse>
 
-    @GET("/exercise")
-    suspend fun fetchExerciseCategories(@Header("Authorization") accessToken: String): Response<List<ExerciseCategory>>
+    @GET("/exercise-categories")   //header- key,value pair of additional info sending on the request - or keys and values
+    suspend fun fetchExerciseCategories(@Header("Authorization")accessToken:String): Response<List<ExerciseCategory>>
+    //key-authorization-value-bearer and a space
 }

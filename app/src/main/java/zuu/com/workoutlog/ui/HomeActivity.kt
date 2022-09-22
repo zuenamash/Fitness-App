@@ -2,15 +2,14 @@ package zuu.com.workoutlog.ui
 
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import zuu.com.workoutlog.LoginActivity
 import zuu.com.workoutlog.R
 import zuu.com.workoutlog.Utilities.Constants
-import zuu.com.workoutlog.Utilities.Constants.Companion.accessToken
 import zuu.com.workoutlog.databinding.ActivityHomeBinding
 import zuu.com.workoutlog.models.loginResponse
 import zuu.com.workoutlog.viewModel.ExerciseViewModel
@@ -18,8 +17,7 @@ import zuu.com.workoutlog.viewModel.ExerciseViewModel
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
     lateinit var sharedPrefs:SharedPreferences
-    var exerciseViewModel:ExerciseViewModel by exerciseViewModel
-    lateinit var sharedPreferences: SharedPreferences
+    val exerciseViewModel : ExerciseViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +27,9 @@ class HomeActivity : AppCompatActivity() {
         castView()
         setupBottomNav()
 
-
         sharedPrefs = getSharedPreferences(Constants.prefsFile, MODE_PRIVATE)
         val token = sharedPrefs.getString(Constants.accessToken, Constants.emptyString)
-        exerciseViewModel.fetchExerciseCategories(accessToken,"token!!") //Can not be null
+        exerciseViewModel.fetchExerciseCategories(token!!) //Can not be null
 
         binding.tvLog.setOnClickListener {
             val editor = sharedPrefs.edit()
@@ -44,6 +41,10 @@ class HomeActivity : AppCompatActivity() {
             logOutRequest()
 //            finish()
         }
+    }
+
+    fun triggerFetchExerciseCategory(){
+
     }
          override fun onResume() {
             super.onResume()

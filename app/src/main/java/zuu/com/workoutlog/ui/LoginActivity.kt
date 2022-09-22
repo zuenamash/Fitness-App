@@ -7,8 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import  androidx.lifecycle.Observer
-import zuu.com.workoutLog.R
-import zuu.com.workoutLog.databinding.ActivityLoginBinding
+import zuu.com.workoutlog.databinding.ActivityLoginBinding
 import zuu.com.workoutlog.models.loginRequest
 import zuu.com.workoutlog.models.loginResponse
 import zuu.com.workoutlog.ui.HomeActivity
@@ -29,8 +28,9 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             validateLogIn()
-            val intent = Intent(this,SignUp::class.java)
-            startActivity(intent)
+
+//            val intent = Intent(this,SignUp::class.java)
+//            startActivity(intent)
         }
 
         binding.tvSighUp.setOnClickListener {
@@ -42,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
         super.onResume()
         userViewModel.loginResponseLiveData.observe(this, Observer { loginResponse->
             saveLoginDetails(loginResponse!!)
-
             Toast.makeText(baseContext,loginResponse?.message,Toast.LENGTH_LONG).show()
             binding.pbLogin.visibility= View.GONE
             startActivity(Intent(baseContext,HomeActivity::class.java))
@@ -53,7 +52,6 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(baseContext,error,Toast.LENGTH_LONG).show()
         })
     }
-
 
     fun validateLogIn(){
         var email = binding.etEmail.text.toString()

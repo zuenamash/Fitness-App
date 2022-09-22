@@ -1,21 +1,21 @@
 package zuu.com.workoutlog.viewModel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import zuu.com.workoutlog.models.ExerciseCategory
 import zuu.com.workoutlog.repository.ExerciseRepository
 
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.launch
 
-
-class ExerciseViewModel {
+class ExerciseViewModel: ViewModel() {
     val exerciseRepository = ExerciseRepository()
-    val exerciseCategoryLiveData = MutableLiveData<List<ExerciseCategory >>()
+    val exerciseCategoryLiveData = MutableLiveData<List<ExerciseCategory>>()
     val errorLiveData = MutableLiveData<String?>()
 
 
-    suspend fun fetchExerciseCategories(accessToken: String) {
-//        viewModelScope.launch {
+    fun fetchExerciseCategories(accessToken: String) {
+        viewModelScope.launch {
             val response = exerciseRepository.fetchExerciseCategory(accessToken)
             if (response.isSuccessful) {
                 exerciseCategoryLiveData.postValue(response.body())
@@ -28,5 +28,5 @@ class ExerciseViewModel {
 
 
     }
-
+}
 

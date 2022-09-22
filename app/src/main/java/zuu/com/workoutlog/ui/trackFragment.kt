@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import zuu.com.workoutLog.R
+import zuu.com.workoutlog.R
 
 
 class trackFragment : Fragment() {
