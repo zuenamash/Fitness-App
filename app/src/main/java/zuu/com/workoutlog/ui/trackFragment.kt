@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import zuu.com.workoutLog.R
 
 
-class track : Fragment() {
+class trackFragment : Fragment() {
 
 
     override fun onCreateView(

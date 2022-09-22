@@ -29,15 +29,35 @@ class SignUp : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.btnSignUp.setOnClickListener {
-            validateSign()
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnSignUp.setOnClickListener{
+            val intent=Intent(this,LoginActivity::class.java)
+            startActivity(intent)
         }
 
         binding.tvNext.setOnClickListener {
-            val intent= Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            validateSign()
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     override fun onResume() {
         super.onResume()
         userViewModel.loginResponseLiveData.observe(this, Observer { register->

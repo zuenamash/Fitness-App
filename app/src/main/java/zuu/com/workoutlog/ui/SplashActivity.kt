@@ -16,7 +16,9 @@ class workOut : AppCompatActivity() {
         val accessToken = sharedPref.getString("ACCESS_TOKEN", "")
         if (accessToken!!.isNotBlank()) {
             startActivity(Intent(this, HomeActivity::class.java))
-        } else {
+
+        }
+        else {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         finish()

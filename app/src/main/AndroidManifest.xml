@@ -12,9 +12,6 @@
         <activity
             android:name=".ui.HomeActivity"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".ui.workOut"-->
-<!--            android:exported="false" />-->
         <activity
             android:name=".ui.SignUp"
             android:exported="false" />

@@ -14,12 +14,12 @@ class UserRepository {
     val apiClient = ApiClient.buildApiClient(ApiInterface::class.java)
 
     suspend fun loginUser(loginRequest: loginRequest) = withContext(Dispatchers.IO) {
-        val response = apiClient.login(loginRequest)
+        val response = apiClient.login(loginRequest)  //invoking the login function
         return@withContext response
     }
 
-    suspend fun makeUserRequest(registerRequest: RegisterRequest): Response<RegisterResponse> = withContext(Dispatchers.IO) {
-            val response = apiClient.registerUser(registerRequest)
+    suspend fun makeUserRequest(registerRequest: RegisterRequest) = withContext(Dispatchers.IO) {
+            val response = apiClient.registerUser(registerRequest) //invoking the register function
             return@withContext response
 
 
