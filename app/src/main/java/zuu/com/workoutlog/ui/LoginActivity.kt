@@ -6,12 +6,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import  androidx.lifecycle.Observer
+import androidx.lifecycle.Observer
 import zuu.com.workoutlog.databinding.ActivityLoginBinding
 import zuu.com.workoutlog.models.loginRequest
 import zuu.com.workoutlog.models.loginResponse
 import zuu.com.workoutlog.ui.HomeActivity
-import zuu.com.workoutlog.ui.SignUp
 import zuu.com.workoutlog.viewModel.UserViewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -28,13 +27,12 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             validateLogIn()
-
-//            val intent = Intent(this,SignUp::class.java)
-//            startActivity(intent)
+            val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
         }
 
         binding.tvSighUp.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }

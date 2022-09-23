@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater) //this is the used binding
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         logOutRequest()
         castView()
@@ -39,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
             editor.apply()
             startActivity(Intent(this, loginResponse::class.java))
             logOutRequest()
-//            finish()
+            finish()
         }
     }
 
