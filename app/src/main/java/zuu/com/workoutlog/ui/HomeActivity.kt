@@ -1,5 +1,6 @@
 package zuu.com.workoutlog.ui
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -7,7 +8,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import zuu.com.workoutlog.LoginActivity
 import zuu.com.workoutlog.R
 import zuu.com.workoutlog.Utilities.Constants
 import zuu.com.workoutlog.databinding.ActivityHomeBinding
@@ -23,7 +23,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        logOutRequest()
         castView()
         setupBottomNav()
 
@@ -38,14 +37,13 @@ class HomeActivity : AppCompatActivity() {
             editor.putString("PROFILE_ID", "")
             editor.apply()
             startActivity(Intent(this, loginResponse::class.java))
-            logOutRequest()
-            finish()
+
         }
     }
 
-    fun triggerFetchExerciseCategory(){
-
-    }
+//    fun triggerFetchExerciseCategory(){
+//
+//    }
          override fun onResume() {
             super.onResume()
              exerciseViewModel.exerciseCategoryLiveData.observe(this, Observer { exerciseCateg ->
@@ -87,10 +85,14 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
-    fun logOutRequest(){
-        sharedPrefs.edit().clear().commit()
-        startActivity(Intent(this,LoginActivity::class.java))
-        finish()
+    companion object {
+        fun getIntent(context:Context):Intent {
+            return  Intent(context,HomeActivity::class.java)
+        }
+//    fun logOutRequest(){
+//        sharedPrefs.edit().clear().commit()
+//        startActivity(Intent(this,LoginActivity::class.java))
+//        finish()
     }
 }
 

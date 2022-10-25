@@ -3,10 +3,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import zuu.com.workoutlog.models.RegisterRequest
-import zuu.com.workoutlog.models.RegisterResponse
-import zuu.com.workoutlog.models.loginRequest
-import zuu.com.workoutlog.models.loginResponse
+import zuu.com.workoutlog.models.*
 import zuu.com.workoutlog.repository.UserRepository
 
 class UserViewModel : ViewModel() {
@@ -15,6 +12,8 @@ class UserViewModel : ViewModel() {
     val loginErrorLiveData = MutableLiveData<String>()
     val registerRequestLiveData = MutableLiveData<RegisterResponse>()
     val registerErrorLiveData = MutableLiveData<String?>()
+    val profileErrorLiveData = MutableLiveData<String?>()
+    val profileResponseLiveData = MutableLiveData<String?>()
 
     fun loginUser(loginRequest: loginRequest) {
         viewModelScope.launch {
@@ -36,11 +35,26 @@ class UserViewModel : ViewModel() {
                 registerRequestLiveData.postValue(response.body())
                 val error = response.errorBody()?.string()
                 registerErrorLiveData.postValue(error)
+
             } else {
                 val error = response.errorBody()?.string()
                 registerErrorLiveData.postValue(error)
             }
         }
+    }
+    fun profileUser(profileRequest: ProfileRequest){
+        viewModelScope.launch {
+            val response=userRepository.profileUser(profileRequest)
+            if (response.isSuccessful){
+                profileResponseLiveData.postValue("response.body()")
+
+            }else{
+                val error=response.errorBody()?.string()
+                profileErrorLiveData.postValue(error)
+            }
+        }
 
     }
+
+
 }

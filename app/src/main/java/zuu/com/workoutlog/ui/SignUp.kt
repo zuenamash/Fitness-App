@@ -22,11 +22,13 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnSignUp.setOnClickListener{
-            val intent=Intent(this,LoginActivity::class.java)
+            val intent=Intent(this,HomeActivity::class.java)
             startActivity(intent)
         }
 
         binding.tvNext.setOnClickListener {
+            val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
             validateSign()
         }
     }
@@ -80,7 +82,7 @@ class SignUp : AppCompatActivity() {
             binding.tilConfirm.error="Passwords must match"
         }
         if(!error){
-            val registerRequest =RegisterRequest(first,last,email,phoneNumber,password)
+            val registerRequests =RegisterRequest(first,last,email,phoneNumber,password)
 //          userViewModel.regesterUser(registerRequest)
 //           makeRegistrationRequest(RegisterRequest)
 

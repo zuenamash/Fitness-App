@@ -1,5 +1,6 @@
 package zuu.com.workoutlog
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -11,6 +12,7 @@ import zuu.com.workoutlog.databinding.ActivityLoginBinding
 import zuu.com.workoutlog.models.loginRequest
 import zuu.com.workoutlog.models.loginResponse
 import zuu.com.workoutlog.ui.HomeActivity
+import zuu.com.workoutlog.ui.SignUp
 import zuu.com.workoutlog.viewModel.UserViewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -27,12 +29,13 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             validateLogIn()
+
             val intent = Intent(this,HomeActivity::class.java)
             startActivity(intent)
         }
 
         binding.tvSighUp.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
     }
@@ -84,5 +87,11 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("USER_ID",loginResponse.userId)
         editor.putString("PROFILE_ID",loginResponse.profileId)
         editor.apply()
+    }
+    companion object {
+        fun getIntent(context:Context): Intent {
+            return Intent(context,LoginActivity::class.java)
+
+        }
     }
 }
